@@ -63,7 +63,7 @@ Launch irssi
 /MSG #general Hey guys !
 
 
-//CONNECTION COMMANDS
+**CONNECTION COMMANDS**
 
 | Command | Description                    | Syntax                                    |
 | ------- | ------------------------------ | ----------------------------------------- |
@@ -72,7 +72,7 @@ Launch irssi
 | `USER`  | Set user information           | `USER <user>`                             |
 | `QUIT`  | Disconnect from the server     | `QUIT [:<message>]`                       |
 
-//CHANNEL COMMANDS
+**CHANNEL COMMANDS**
 
 | Command   | Description                       | Syntax                                   |
 | --------- | --------------------------------- | ---------------------------------------- |
@@ -85,7 +85,7 @@ Launch irssi
 | `PRIVMSG` | Send a private or channel message | `PRIVMSG <target> :<message>`            |
 
 
-//DEBUG AND DIAGNOSTIC TOOLS
+**DEBUG AND DIAGNOSTIC TOOLS**
 
 Check active connections on port <port>:
 
@@ -100,10 +100,31 @@ Memory leaks and active file descriptor check for ircserv using Valgrind:
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./ircserv <port> <password>
 
 
-**RESOURCES**
+## 🛠 **Technologies & Requirements**
 
-https://modern.ircdocs.horse/
+- **Language**: C++98
+- **Compiler**: `g++` or `clang++` (tested with `-std=c++98`).
+- **Dependencies**:
+  - POSIX sockets (`<sys/socket.h>`, `<netinet/in.h>`, etc.).
+  - Standard C++ libraries (`<vector>`, `<map>`, `<string>`, etc.).
+- **OS**: Linux (tested on Debian/Ubuntu).
 
-https://datatracker.ietf.org/doc/html/rfc2812
+---
 
-https://www.csd.uoc.gr/~hy556/material/tutorials/cs556-3rd-tutorial.pdf
+## **Known Issues & Limitations**
+
+-  **No SSL/TLS**: Communication is unencrypted (for simplicity).
+-  **Single-Threaded**: Uses `select()` for I/O multiplexing (no multi-threading).
+-  **Limited RFC Compliance**: Some edge cases may not be fully handled.
+
+---
+
+## **Resources**
+
+- [RFC 1459 (IRC Protocol)](https://tools.ietf.org/html/rfc1459)
+- [RFC 2810-2813 (IRCv3)](https://tools.ietf.org/html/rfc2810)
+- [42 IRC Project Subject](https://github.com/42School/norminette) (if available)
+- [IRCv3 Modern IRC](https://ircv3.net/)
+
+---
+
